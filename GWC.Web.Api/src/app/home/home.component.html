@@ -1,0 +1,26 @@
+<div *ngFor="let blog of blogs">
+    <gwc-blog-post-line 
+        [url]=blog.fields.url        
+        [id]=blog.fields.id
+        [content]=blog.fields.content
+        [date]=blog.fields.date
+        [title]=blog.fields.title
+        [tags]=blog.fields.tags
+        [summary]=true
+    >
+    </gwc-blog-post-line>
+</div>
+
+<div class="col-xs-12" *ngIf=displayPagination >
+    <ngb-pagination #ngbPagination        
+        (pageChange)="onPageChange($event)"
+        [collectionSize]=collectionSize
+        [maxSize]="5"
+        [page]=currentPage
+        [pageSize]=pageSize
+        [rotate]="true"
+        [boundaryLinks]="true"
+        class="d-flex justify-content-both"        
+        >
+    </ngb-pagination>
+</div>         

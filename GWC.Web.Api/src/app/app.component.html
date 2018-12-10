@@ -1,0 +1,47 @@
+
+<div class="container-fluid">
+    <div class="row wrapper">
+         <div class="col-12  header">
+            <gwc-navbar-header></gwc-navbar-header>
+        </div>   
+        <aside class="col-12 col-sm-2 sidebar">
+            <p class="logo-text" style="margin-top: 15px;"> 
+                <a [routerLink]="['/']" style="color: #d2d2d2;" title="Gray Wolf Corporation" >
+                    GWC
+                </a>
+            </p>
+            <p class="header-description text-center">
+                I provide contract programming and other IT related services on an as needed basis.
+                I like to develop service and database layers, along with API integration and Angular SPAs.
+                <img class="img-fluid img-thumbnail" src="/assets/images/photo.jpg" style="background-color: transparent; border:none; margin-top:15px;"> 
+            </p> 
+            <div class="row" style="margin-top:-10px; padding-bottom: 10px;">
+                <div class="col-sm text-center">
+                    <a (click)="showContactForm('none')"  href="#" title="Contact Me" style="font-size: 24px;">
+                        <span class="fa fa-envelope-open"></span>                
+                    </a>               
+                </div>
+                <div class="col-sm text-center">
+                    <a href="https://www.linkedin.com/in/park-espenschade/" target="_blank" title="LinkedIn profile" style="font-size: 24px;">
+                        <span class="fa fa-linkedin">&nbsp;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div *ngFor="let category of categories">
+                <span style="font-weight: 500;" [innerText]=category></span>
+                <span *ngIf="category == 'Languages'" class="float-right">Years</span>
+                <ul style="text-align:left;">                       
+                    <li *ngFor="let skill of getSkills(category)"  >
+                        <span [innerText]=skill.description></span>
+                        <span class="float-right" [innerText]=skill.years></span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <main class="col bg-faded py-3">
+            <router-outlet></router-outlet>           
+        </main>
+    </div>
+  </div>
+

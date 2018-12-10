@@ -1,0 +1,3 @@
+[submodule "GwcCommon"]
+	path = GwcCommon
+	url = https://graywolfcorp.visualstudio.com/GwcCommon/_git/GwcCommon

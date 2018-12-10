@@ -1,0 +1,82 @@
+<div class="modal-content">
+  <div class="modal-header justify-content-between">
+    <h3 style="margin-left:0px;" >Contact Me</h3>
+    <button type="button" class="close" (click)="closeModal()"><span aria-hidden="true">&times;</span>    </button>
+  </div>
+  
+  <div class="modal-body" style="padding:0;">
+    <form  novalidate [formGroup]="contactForm"  >  
+      <div class="container">
+        <div class="form-group" style="padding-top:15px;">
+          <input type="text" 
+            placeholder="Name*"
+            class="form-control"
+            formControlName="name" />
+        </div>
+        
+        <div formGroupName="emailGroup">      
+          <div class="form-group">
+              <input class="form-control" 
+                  id="emailId" 
+                  type="email" 
+                  placeholder="Email*" 
+                  formControlName = "email" />
+          </div>
+
+          <div class="form-group" >
+              <div >
+                  <input class="form-control" 
+                      id="confirmEmailId" 
+                      type="email" 
+                      placeholder="Confirm Email*" 
+                      formControlName = "confirmEmail" />
+              </div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <input class="form-control" formControlName="phoneNumber" 
+            placeholder="Phone Number*"
+            >
+
+        </div>
+        <div class="form-group">
+          <select class="form-control" id="helpYouId" formControlName="helpYou">
+            <option *ngFor="let help of contactHelpYou" [ngValue]="help">{{ help }}</option>
+          </select>
+        </div>
+        <!-- <div class="form-group" *ngIf="contactForm.get('helpYou').value == 'Need help with a problem'">
+            <select class="form-control" id="helpYouDetailId" formControlName="helpYouDetail"
+            >
+              <option *ngFor="let help of contactHelpYouDetail" [ngValue]="help">{{ help }}</option>
+              <option value="">What type of problem are you having?</option>
+            </select>
+        </div> -->
+        <div class="form-group" >
+          <textarea class="form-control" id="commentsId" formControlName="comments" placeholder="Please be as specific as possible about your inquiry:" style="min-height: 100px;"></textarea>
+        </div>        
+        <div class="form-group" >        
+          <div nbRecaptcha 
+              key='6LfzmmkUAAAAALTsQDlYPVEb1Q2wNHaohLtRtZiV' 
+              id="captchaId" 
+              formControlName="captcha"
+              style="width:304px;"
+              ></div>
+        </div>
+        <div class="form-group bold" *ngIf='emailMessage != ""'>        
+            {{emailMessage}}
+        </div>    
+      </div>  
+    </form>  
+  </div>
+
+  <div class="modal-footer justify-content-between" style="border:none;">
+    <button class="btn btn-success" (click)='submitForm()'>
+      Submit Form
+    </button>
+
+    <button class="btn btn-warning" (click)='closeModal()'>
+      Close
+    </button>
+  </div>
+
+</div>

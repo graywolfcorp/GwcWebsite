@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg" >
+    
+  <a  [routerLink]="['/']" class="navbar-brand img-responsive" >
+      <img src="/assets/images/gwclogo3.jpg" height="50" />      
+  </a>
+  <span class="center logo-text"> 
+        <a  [routerLink]="['/']" class="navbar-brand img-responsive" >Gray Wolf Corporation</a>
+    </span>
+  <div class="collapse navbar-collapse">
+      <div class="navbar-nav d-md-inline" >
+          <a class="button" [routerLink]="['/services']" >Services</a>
+          <a class="button" [routerLink]="['/tr']" >TR Timeline</a>
+          <a href="#" class="button" (click)="showContactForm('General Questions')" >Contact</a>
+      </div>           
+  </div>         
+
+  <div id="navbar-right">         
+      <div class="d-none d-lg-block" style="text-align:right;">
+          
+      </div>
+      <div class="float-right d-lg-none" >
+            <a (click)="showContactForm('none')"  href="#" title="Contact Me" style="font-size: 24px;">
+                    <span class="fa fa-envelope-open"></span>                
+            </a>               
+            &nbsp;&nbsp;    
+            <a href="https://www.linkedin.com/in/park-espenschade/" target="_blank" title="LinkedIn profile" style="font-size: 24px;">
+                <span class="fa fa-linkedin">&nbsp;</span>
+            </a>
+          <button  (click)="toggleMenu()" class="navbar-toggler" style="display: none;" type="button" >
+              <span class="navbar-toggler-icon float-xs-right"></span>
+          </button>
+      </div>
+  </div>
+</nav>             
+    
+<!-- Mobile -->
+<div class="collapse navbar-collapse" id="navbar-menu" [ngClass]="{ 'in': menuOpen }" > 
+  <div class="navbar-nav mr-auto" style="padding-left: 10px;">
+      <h2>Gray Wolf Corporation</h2>
+      <ul class="nav navbar-nav navbar-mobile">
+          <a class="dropdown-item" [routerLink]="['/services']">Services</a>               
+          <a class="dropdown-item" (click)="showContactForm('General Questions')">Contact</a>                            
+      </ul> 
+  </div>
+</div> 

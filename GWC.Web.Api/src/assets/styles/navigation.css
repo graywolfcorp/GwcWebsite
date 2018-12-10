@@ -1,0 +1,30 @@
+.logo-text {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    color: #d2d2d2;
+}
+
+.sidebar{
+    color: #d2d2d2;
+   background-color: #333;
+}
+
+.sidebar ul{
+    list-style: none;  
+    margin: 0; 
+    padding: 5px; 
+}
+   
+@media (max-width: 976px){
+    .sidebar{
+        display:none;
+        
+    }
+}
+@media (min-width: 976px){
+    .header{
+        display:none;
+    }
+}
+    

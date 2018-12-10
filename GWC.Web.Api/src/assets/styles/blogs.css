@@ -1,0 +1,37 @@
+.post-tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-tags li {
+    display: inline-block;
+}
+
+.post-tags-icon {
+    margin-right: 10px;
+}
+
+.post-tag {
+    background: #333;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    padding: 2px 12px;
+}
+
+.post-tag:hover {
+    background: mediumblue;
+    text-decoration: none;
+    color: #fff;
+}
+
+.text-muted {
+    color: #868e96!important;
+}
+
+.u-text-link, .u-text-link:hover {
+    color: inherit;
+}

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GWC.Web.Api</name>
+    </assembly>
+    <members>
+        <member name="T:GWC.Web.Api.Controllers.BlogController">
+            <summary>  
+            Blogs  
+            </summary>  
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.BlogController.#ctor(GWC.Web.Interfaces.Services.IContentfulService)">
+            <summary>  
+            Constructor for Blog Controller  
+            </summary>  
+        </member>
+        <member name="T:GWC.Web.Api.Controllers.CalendarController">
+            <summary>  
+            Calendars  
+            </summary>  
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.CalendarController.#ctor(GWC.Web.Interfaces.Services.ICalendarService)">
+            <summary>  
+            Constructor for Home Controller  
+            </summary>  
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.CalendarController.SearchCalendars(GWC.Web.Dtos.Requests.CalendarSearchRequest)">
+            <summary>
+            Gets a list of calendar events
+            </summary>
+            <remarks>
+            
+            
+            </remarks>
+            <param name="calendarSearchRequest"></param>
+            <response code="200">Returns when events returned</response>
+            <response code="500">Returns on error</response>
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.CalendarController.GetById(System.Int32)">
+            <summary>
+            Gets a single calendar event
+            </summary>
+            <param name="id"></param>
+            <response code="200">Returns when event found</response>
+            <response code="400">Returns when event not found</response>
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.CalendarController.GetTest">
+            <summary>
+            Api hearbeat test
+            </summary>        
+            <response code="200">Returns when endpoint is working</response>
+            <response code="500">Returns when endpoint is not working</response>
+        </member>
+        <member name="T:GWC.Web.Api.Controllers.HomeController">
+            <summary>  
+            Company  
+            </summary>  
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.HomeController.#ctor(GWC.Web.Interfaces.Services.IBillingCalendarService,Microsoft.Extensions.Configuration.IConfiguration,Gwc.Common.Interfaces.Services.ISendGridService)">
+            <summary>  
+            Constructor for Home Controller  
+            </summary>  
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.HomeController.SendContactMessage(GWC.Web.Dtos.ContactDto)">
+            <summary>
+            Send a message
+            </summary>
+            <remarks>
+            The recaptcha clientResponse is required for the message to be sent
+            
+            </remarks>
+            <param name="contact"></param>
+            <response code="200">Returns when message sent</response>
+            <response code="500">Returns on error</response>
+        </member>
+        <member name="T:GWC.Web.Api.Controllers.SourceController">
+            <summary>  
+            Sources  
+            </summary>  
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.SourceController.#ctor(GWC.Web.Interfaces.Services.ISourceService,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>  
+            Constructor for Home Controller  
+            </summary>  
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.SourceController.SearchSources">
+            <summary>
+            Gets a list of source events
+            </summary>
+            <remarks>
+            
+            
+            </remarks>
+            <response code="200">Returns when events returned</response>
+            <response code="500">Returns on error</response>
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.SourceController.GetById(System.Int32)">
+            <summary>
+            Gets a single source event
+            </summary>
+            <param name="id"></param>
+            <response code="200">Returns when event found</response>
+            <response code="400">Returns when event not found</response>
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.SourceController.GetTest">
+            <summary>
+            Api hearbeat test
+            </summary>        
+            <response code="200">Returns when endpoint is working</response>
+            <response code="500">Returns when endpoint is not working</response>
+        </member>
+        <member name="M:GWC.Web.Api.Controllers.UsersController.Delete(System.Int32)">
+            <summary>
+            Deletes a specific TodoItem.
+            </summary>
+            <param name="id"></param> 
+        </member>
+    </members>
+</doc>

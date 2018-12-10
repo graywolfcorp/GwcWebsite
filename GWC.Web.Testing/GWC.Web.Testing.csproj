@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>8cef12cd-ce27-4c76-adca-413d9edc4ccd</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Autofac.Configuration" Version="4.1.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.0" />
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="contentful.aspnetcore" Version="3.3.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="2.1.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="Moq" Version="4.10.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="NUnit" Version="3.11.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GWC.Web.DataAccess\GWC.Web.DataAccess.csproj" />
+    <ProjectReference Include="..\GWC.Web.Dtos\GWC.Web.Dtos.csproj" />
+    <ProjectReference Include="..\GWC.Web.Interfaces\GWC.Web.Interfaces.csproj" />
+    <ProjectReference Include="..\GWC.Web.Model\GWC.Web.Model.csproj" />
+    <ProjectReference Include="..\GWC.Web.Services\GWC.Web.Services.csproj" />
+    <ProjectReference Include="..\GwcCommon\Gwc.Common.Dtos\Gwc.Common.Dtos.csproj" />
+    <ProjectReference Include="..\GwcCommon\Gwc.Common.HttpClient\Gwc.Common.HttpClient.csproj" />
+    <ProjectReference Include="..\GwcCommon\Gwc.Common.Interfaces\Gwc.Common.Interfaces.csproj" />
+    <ProjectReference Include="..\GwcCommon\Gwc.Common.Services\Gwc.Common.Services.csproj" />
+    <ProjectReference Include="..\GwcCommon\Gwc.Common.Utilities\Gwc.Common.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Hosting">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.hosting\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\..\Workspaces\Pioneer\PTClasses\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

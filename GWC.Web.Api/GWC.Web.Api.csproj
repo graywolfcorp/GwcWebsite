@@ -1,0 +1,120 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>8cef12cd-ce27-4c76-adca-413d9edc4ccd</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\park\Source\GWC\GwcWebsite\GWC.Web.Api\GWC.Web.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="dist\**" />
+    <Compile Remove="src\assets\images\**" />
+    <Compile Remove="src\assets\styles\**" />
+    <Content Remove="dist\**" />
+    <Content Remove="src\assets\images\**" />
+    <Content Remove="src\assets\styles\**" />
+    <EmbeddedResource Remove="dist\**" />
+    <EmbeddedResource Remove="src\assets\images\**" />
+    <EmbeddedResource Remove="src\assets\styles\**" />
+    <None Remove="dist\**" />
+    <None Remove="src\assets\images\**" />
+    <None Remove="src\assets\styles\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="src\app\app.component.css" />
+    <None Remove="src\app\app.component.html" />
+    <None Remove="src\app\app.component.spec.ts" />
+    <None Remove="src\app\app.component.ts" />
+    <None Remove="src\app\app.module.ts" />
+    <None Remove="src\assets\.gitkeep" />
+    <None Remove="src\browserslist" />
+    <None Remove="src\environments\environment.prod.ts" />
+    <None Remove="src\environments\environment.ts" />
+    <None Remove="src\favicon.ico" />
+    <None Remove="src\index.html" />
+    <None Remove="src\karma.conf.js" />
+    <None Remove="src\main.ts" />
+    <None Remove="src\polyfills.ts" />
+    <None Remove="src\styles.css" />
+    <None Remove="src\test.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\assets\.gitkeep" />
+    <Content Include="src\browserslist" />
+    <Content Include="src\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="src\karma.conf.js" />
+    <Content Include="src\styles.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.0" />
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="contentful.aspnetcore" Version="3.3.6" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.6" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Rewrite" Version="2.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GwcCommon\Gwc.Common.Dtos\Gwc.Common.Dtos.csproj" />
+    <ProjectReference Include="..\GWC.Web.DataAccess\GWC.Web.DataAccess.csproj" />
+    <ProjectReference Include="..\GWC.Web.Interfaces\GWC.Web.Interfaces.csproj" />
+    <ProjectReference Include="..\GWC.Web.Services\GWC.Web.Services.csproj" />
+    <ProjectReference Include="..\GwcCommon\Gwc.Common.Interfaces\Gwc.Common.Interfaces.csproj" />
+    <ProjectReference Include="..\GwcCommon\Gwc.Common.Services\Gwc.Common.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\app\data\requests\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="src\environments\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\test.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="GWC.Web.Api.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

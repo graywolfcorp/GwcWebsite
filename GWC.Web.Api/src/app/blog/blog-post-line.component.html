@@ -1,0 +1,22 @@
+<div class="blog-post-line">
+  <h2 class="blog-post-line__header">
+    <a [href]=url [innerText]=title [title]=title  ></a>
+  </h2>
+  <p class="blog-post-line text-muted">
+    <a class="u-text-link" [href]=blogUrlYear [innerHTML]=blogDate title="See all blog posts for this year"></a>
+  </p> 
+  <markdown [data]="content" ngPreserveWhitespaces></markdown>
+  <div  class="blog-post-tags">
+    <ul  class="post-tags">
+      <li  class="post-tags-icon"><span  class="fa fa-tags" aria-hidden="true"></span></li>
+      <li *ngFor="let item of tags | filterTag: allTags ">
+        <a  class="post-tag" href="/blogs/posts/tags/{{item.slug}}" [innerHTML]=item.description  title="See all {{item.description}} posts" ></a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<gwc-gist [gistHeight]=gistHeight [gistId]=gistId  ></gwc-gist>
+
+
+
