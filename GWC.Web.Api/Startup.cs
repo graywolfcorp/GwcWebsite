@@ -1,4 +1,4 @@
-﻿using Autofac;
+using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using Gwc.Common.Interfaces.Services;
@@ -6,8 +6,6 @@ using GWC.Web.Configuration;
 using GWC.Web.DataAccess;
 using GWC.Web.Dtos;
 using GWC.Web.Services.AutoMapper;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
@@ -16,15 +14,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 
-#pragma warning disable 1591
 namespace GWC.Web.Api
 {
     public class Startup
@@ -52,8 +46,8 @@ namespace GWC.Web.Api
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(
-            IApplicationBuilder app, 
-            IHostingEnvironment env, 
+            IApplicationBuilder app,
+            IHostingEnvironment env,
             ILoggerFactory loggerFactory,
             GwcDbContext dbContext)
         {
@@ -81,16 +75,16 @@ namespace GWC.Web.Api
             });
 
             GraywolfDbInitializer.Initialize(dbContext);
-        }       
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-
             var corsBuilder = new CorsPolicyBuilder();
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();
             corsBuilder.AllowAnyOrigin(); // For anyone access.
+
             //corsBuilder.WithOrigins("http://localhost:56573"); // for a specific url. Don't add a forward slash on the end!
             corsBuilder.AllowCredentials();
 
@@ -104,7 +98,7 @@ namespace GWC.Web.Api
                 cfg.UseSqlServer(_webConfiguration.ConnectionString);
             });
 
-           services.AddSingleton<IConfiguration>(_configuration);
+            services.AddSingleton<IConfiguration>(_configuration);
 
             services.AddMvc(opt =>
             {
@@ -131,6 +125,7 @@ namespace GWC.Web.Api
                         Url = "http://graywolfcorp.com"
                     }
                 });
+
                 // Set the comments path for the Swagger JSON and UI.
                 var basePath = AppContext.BaseDirectory;
                 var xmlPath = Path.Combine(basePath, "GWC.Web.Api.xml");
@@ -144,36 +139,11 @@ namespace GWC.Web.Api
 
             services.AddAutoMapper(x => x.AddProfile<GwcModelDtoProfile>());
 
-            //var key = Encoding.ASCII.GetBytes(_webConfiguration.secret);
-
-            //services.AddAuthentication(x =>
-            //{
-            //    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //.AddJwtBearer(x =>
-            //{
-            //    x.RequireHttpsMetadata = false;
-            //    x.SaveToken = true;
-            //    x.Audience = _webConfiguration.AzureAd.ClientId;
-            //    x.Authority = String.Format(_webConfiguration.AzureAd.AadInstance, _webConfiguration.AzureAd.Tenant);
-            //    x.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        AuthenticationType = "Bearer",
-            //        ValidateIssuerSigningKey = true,
-            //        IssuerSigningKey = new SymmetricSecurityKey(key),
-            //        ValidateIssuer = false,
-            //        ValidateAudience = false
-            //    };
-            //});
-
             //needed for NLog.Web
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             var developmentMode = _webConfiguration.DevelopmentMode.ToLower() == "true";
             var logLevel = _webConfiguration.LogLevel;
-            //var logFolder = _configuration["AppSettings:logFolder"];
-
             var containerBuilder = new ContainerBuilder();
             AutofacConfig.Register(containerBuilder, developmentMode);
             containerBuilder.Populate(services);
@@ -182,22 +152,10 @@ namespace GWC.Web.Api
 
             var _logManagerService = serviceProvider.GetService<ILogManagerService>();
             var _loggingService = serviceProvider.GetService<ILoggingService>();
-
             var connectionString = _webConfiguration.ConnectionString;
-
             _loggingService.AddDatabaseTarget(connectionString, logLevel, _logManagerService.DefaultDbLogger);
-            //_loggingService.AddFileTarget(logFolder.Add("nLogTesting.txt"), logLevel, _logManagerService.DefaultFileLogger);
 
             return serviceProvider;
         }
-
-        // Handle sign-in errors differently than generic errors.
-        private Task OnAuthenticationFailed(RemoteFailureContext context)
-        {
-            context.HandleResponse();
-            //context.Response.Redirect("/Home/Error?message=" + context.Failure.Message);
-            return Task.FromResult(0);
-        }
     }
 }
-#pragma warning restore 1591
