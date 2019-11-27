@@ -1,6 +1,0 @@
-﻿dotnet publish /p:PublishProfile=CustomProfile /p:Configuration=Release
-
-
-AD Code  1vVFFHkB+m9gMGMEyBNRBcq55Wn67Wgw34/yexPHYeE=
-
-git submodule add https://graywolfcorp.visualstudio.com/GwcCommon/_git/GwcCommon
